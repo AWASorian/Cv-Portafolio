@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mis Proyectos</title>
+  <link href="css/tailwind.css" rel="stylesheet" />
+</head>
+<body class="tw-bg-gray-900 tw-text-white">
+
+  <main class="tw-py-10 tw-container tw-mx-auto">
+    <h1 class="tw-text-4xl tw-font-bold tw-text-center tw-mb-6">Proyectos</h1>
+
+    <!-- Botones para cambiar pestañas -->
+    <div class="tw-flex tw-flex-wrap tw-justify-center tw-gap-4 tw-mb-8">
+      <button class="tab-btn tw-bg-yellow-500 tw-text-black tw-px-4 tw-py-2 tw-rounded" onclick="openTab('electricidad', event)">Electricidad</button>
+      <button class="tab-btn tw-bg-yellow-500 tw-text-black tw-px-4 tw-py-2 tw-rounded" onclick="openTab('soldadura', event)">Soldadura</button>
+      <button class="tab-btn tw-bg-yellow-500 tw-text-black tw-px-4 tw-py-2 tw-rounded" onclick="openTab('torneado', event)">Torneado</button>
+      <button class="tab-btn tw-bg-yellow-500 tw-text-black tw-px-4 tw-py-2 tw-rounded" onclick="openTab('rectificado', event)">Rectificador Automotriz</button>
+    </div>
+
+    <!-- Pestañas -->
+    <div id="tab-electricidad" class="tab-content">
+      <h2 class="tw-text-2xl tw-font-bold tw-mb-4">Electricidad</h2>
+      <p>Instalación eléctrica residencial, cableado completo y conexión a red.</p>
+    </div>
+
+    <div id="tab-soldadura" class="tab-content tw-hidden">
+      <h2 class="tw-text-2xl tw-font-bold tw-mb-4">Soldadura</h2>
+      <p>Fabricación de estructura metálica para tanque de 1,100 litros en Choluteca.</p>
+    </div>
+
+    <div id="tab-torneado" class="tab-content tw-hidden">
+      <h2 class="tw-text-2xl tw-font-bold tw-mb-4">Torneado</h2>
+      <p>Fabricación y ajuste de eje para motor industrial con precisión.</p>
+    </div>
+
+    <div id="tab-rectificado" class="tab-content tw-hidden">
+      <h2 class="tw-text-2xl tw-font-bold tw-mb-4">Rectificador Automotriz</h2>
+      <p>Rectificado de bloque Toyota 22R, alineación de cilindros y plano superior.</p>
+    </div>
+  </main>
+
+  <!-- Script para pestañas -->
+  <script>
+    function openTab(tabId, event) {
+      document.querySelectorAll('.tab-content').forEach(tab => {
+        tab.classList.add('tw-hidden');
+      });
+
+      const selectedTab = document.getElementById('tab-' + tabId);
+      if (selectedTab) selectedTab.classList.remove('tw-hidden');
+
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.classList.remove('tw-ring-2', 'tw-ring-blue-500');
+      });
+      if (event) event.target.classList.add('tw-ring-2', 'tw-ring-blue-500');
+    }
+
+    document.addEventListener('DOMContentLoaded', () => openTab('electricidad'));
+  </script>
+  
+</body>
+</html>
